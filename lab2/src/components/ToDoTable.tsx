@@ -1,6 +1,12 @@
-import {ToDoItem} from "../types/toDoItem.ts";
+import React from 'react';
+import { ToDoItem } from "../types/toDoItem.ts";
 
-const ToDoTable = ({toDoList , handleDelete}) => {
+interface Props {
+    toDoList: ToDoItem[];
+    handleDelete: (id: number) => void;
+}
+
+const ToDoTable: React.FC<Props> = ({toDoList , handleDelete}) => {
     return (
         <table>
             <thead>
@@ -28,4 +34,5 @@ const ToDoTable = ({toDoList , handleDelete}) => {
         </table>
     )
 }
+
 export default ToDoTable;

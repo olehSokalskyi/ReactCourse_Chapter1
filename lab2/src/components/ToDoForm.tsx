@@ -1,5 +1,13 @@
+import React from 'react';
+import { ToDoItem } from "../types/toDoItem.ts";
 
-const ToDoForm = ({toDo,handleAddToDo,handleChange}) => {
+interface Props {
+    toDo: ToDoItem;
+    handleAddToDo: (event: React.FormEvent<HTMLFormElement>) => void;
+    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const ToDoForm: React.FC<Props> = ({toDo, handleAddToDo, handleChange}) => {
     return (
         <form onSubmit={handleAddToDo}>
             <input name="title" value={toDo.title} onChange={handleChange} type="text" placeholder="Title"/>
