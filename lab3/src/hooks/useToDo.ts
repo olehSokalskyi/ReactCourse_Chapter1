@@ -9,7 +9,6 @@ export const useToDoList = (initialToDoList: ToDoItem[]) => {
     completed: false,
     userId: 1,
   })
-  const [idCounter, setIdCounter] = useState<number>(initialToDoList.length + 1)
   const [searchTerm, setSearchTerm] = useState<string>('')
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,8 +34,9 @@ export const useToDoList = (initialToDoList: ToDoItem[]) => {
 
   const handleAddToDo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIdCounter(idCounter + 1)
-    const newToDo = { ...toDo, id: idCounter, userId: 1 }
+    if(toDo.title === '') return
+    const uuid = Date.now()
+    const newToDo = { ...toDo, id: uuid, userId: 1 }
     setToDoList([...toDoList, newToDo])
   }
 
