@@ -1,4 +1,3 @@
-import React from 'react';
 import {ToDoItem} from "../types/toDoItem.ts";
 import {useToDoList} from "../hooks/useToDo.ts";
 import ToDoSearchInput from "./ToDoSearchInput.tsx";
