@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { ToDoItem } from '../types/toDoItem'
 
-export const useToDoList = (initialToDoList: ToDoItem[]) => {
-  const [toDoList, setToDoList] = useState<ToDoItem[]>(initialToDoList)
+export const useToDoList = () => {
+  const [toDoList, setToDoList] = useState<ToDoItem[]>([])
   const [toDo, setToDo] = useState<ToDoItem>({
     id: 0,
     title: '',
@@ -34,7 +34,7 @@ export const useToDoList = (initialToDoList: ToDoItem[]) => {
 
   const handleAddToDo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if(toDo.title === '') return
+    if (toDo.title === '') return
     const uuid = Date.now()
     const newToDo = { ...toDo, id: uuid, userId: 1 }
     setToDoList([...toDoList, newToDo])
