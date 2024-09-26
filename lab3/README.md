@@ -8,6 +8,6 @@
   to the toDoList, which causes all components in the ToDoContainer container to re-render
 - ToDoTable has side effect on all components through the function handleDeleteToDo. handleDeleteToDo deletes
   a toDo object in the toDoList, which causes all components in the ToDoContainer container to re-render
-- ToDoSearch has side effect on all components in ToDoContainer through the function handleSearch. _ _**handleSearch set value from input to searchTerm state in useToDo hook**_ _
+- ToDoSearch has side effect on all components in ToDoContainer through the function handleSearch. _**handleSearch set value from input to searchTerm state in useToDo hook**_
 
 In this lab, the problem with side effects on the PageTitle component was fixed by using the toDoContainer.
