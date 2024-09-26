@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { ToDoItem } from "../types/toDoItem";
 import { useGetAllToDo } from "./useGetAllToDo";
 
@@ -22,10 +22,10 @@ export const useToDoList = () => {
   );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setToDo({
       ...toDo,
-      [name]: value,
+      [name]: type === "checkbox" ? checked : value,
     });
   };
 
@@ -37,10 +37,10 @@ export const useToDoList = () => {
   const handleAddToDo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (toDo.title === "") return;
-    setToDo({ id: 0, title: "", completed: false, userId: 1 });
     const uuid = Date.now();
     const newToDo = { ...toDo, id: uuid, userId: 1 };
     setTodos([...todos, newToDo]);
+    setToDo({ id: 0, title: "", completed: false, userId: 1 });
   };
 
   return {

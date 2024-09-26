@@ -1,16 +1,13 @@
-import React from 'react'
-import {ToDoItem} from '../types/toDoItem.ts'
+import React from "react";
+import { ToDoItem } from "../types/toDoItem.ts";
 
 interface Props {
-  toDo: ToDoItem
-  handleAddToDo: (event: React.FormEvent<HTMLFormElement>) => void
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  toDo: ToDoItem;
+  handleAddToDo: (event: React.FormEvent<HTMLFormElement>) => void;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const ToDoForm: React.FC<Props> = ({
-  toDo,
-  handleAddToDo, handleChange
-}) => {
+const ToDoForm: React.FC<Props> = ({ toDo, handleAddToDo, handleChange }) => {
   return (
     <form onSubmit={handleAddToDo}>
       <input
@@ -22,13 +19,13 @@ const ToDoForm: React.FC<Props> = ({
       />
       <input
         name="completed"
-        value={toDo.completed ? 'true' : 'false'}
+        checked={toDo.completed}
         onChange={handleChange}
         type="checkbox"
       />
       <button type="submit">Add</button>
     </form>
-  )
-}
+  );
+};
 
-export default ToDoForm
+export default ToDoForm;
