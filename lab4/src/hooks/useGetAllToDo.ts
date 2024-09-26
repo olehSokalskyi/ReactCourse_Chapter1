@@ -16,12 +16,13 @@ export const useGetAllToDo = () => {
             setTodos(json);
             setLoading(false);
           });
-       } catch (error) {
-        setError(error as Error);
+      } catch (e) {
+        setError(e as Error);
+        console.error(error);
       } finally {
         setLoading(false);
+      }
     };
-  }
     fetchData();
   }, []);
 
