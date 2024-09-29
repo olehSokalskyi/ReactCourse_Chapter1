@@ -40,7 +40,9 @@ const ToDoContainer = () => {
               width={100}
               color="#4fa94d"
               secondaryColor="#4fa94d"
-            />
+            >
+              Loading...
+            </Loader>
           ) : (
             <ToDoTable toDoList={toDoList} handleDelete={handleDelete} />
           )}

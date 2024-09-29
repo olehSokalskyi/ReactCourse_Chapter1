@@ -1,13 +1,21 @@
 import { MutatingDots } from "react-loader-spinner";
 
-export const Loader = () => {
+interface Props {
+  visible: boolean;
+  height: number;
+  width: number;
+  color: string;
+  secondaryColor: string;
+  children?: React.ReactNode;
+}
+export const Loader: React.FC<Props> = (props) => {
   return (
     <MutatingDots
-      visible={true}
-      height="100"
-      width="100"
-      color="#4fa94d"
-      secondaryColor="#4fa94d"
+      visible={props.visible}
+      height={props.height}
+      width={props.width}
+      color={props.color}
+      secondaryColor={props.secondaryColor}
       radius="12.5"
       ariaLabel="mutating-dots-loading"
       wrapperStyle={{}}
