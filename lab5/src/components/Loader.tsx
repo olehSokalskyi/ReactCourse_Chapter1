@@ -10,7 +10,7 @@ interface Props {
 }
 export const Loader: React.FC<Props> = (props) => {
   return (
-    <div>
+    <div className="">
       <MutatingDots
         visible={props.visible}
         height={props.height}
@@ -19,10 +19,14 @@ export const Loader: React.FC<Props> = (props) => {
         secondaryColor={props.secondaryColor}
         radius="12.5"
         ariaLabel="mutating-dots-loading"
-        wrapperStyle={{}}
+        wrapperStyle={{
+          direction: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
         wrapperClass=""
-        />
-        {props.children}
+      />
+      {props.children}
     </div>
   );
 };
