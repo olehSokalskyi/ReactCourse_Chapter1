@@ -1,8 +1,8 @@
-import { useToDo } from "../hooks/useToDo.ts";
-import ToDoSearchInput from "./ToDoSearchInput.tsx";
-import ToDoTable from "./ToDoTable.tsx";
-import ToDoForm from "./ToDoForm.tsx";
-import { Loader } from "./Loader.tsx";
+import { useToDo } from '../hooks/useToDo.ts'
+import ToDoSearchInput from './ToDoSearchInput.tsx'
+import ToDoTable from './ToDoTable.tsx'
+import ToDoForm from './ToDoForm.tsx'
+import { Loader } from './Loader.tsx'
 
 const ToDoContainer = () => {
   const {
@@ -14,42 +14,28 @@ const ToDoContainer = () => {
     handleChange,
     handleDelete,
     handleAddToDo,
-  } = useToDo();
+  } = useToDo()
 
   return (
     <>
       <div>
-        <div>
-          <ToDoSearchInput
-            searchTerm={searchTerm}
-            handleSearchChange={handleSearchChange}
-          />
-        </div>
-        <div>
-          <ToDoForm
-            toDo={toDo}
-            handleChange={handleChange}
-            handleAddToDo={handleAddToDo}
-          />
-        </div>
-        <div>
-          {loading ? (
-            <Loader
-              visible={loading}
-              height={100}
-              width={100}
-              color="#4fa94d"
-              secondaryColor="#4fa94d"
-            >
-              Loading...
-            </Loader>
-          ) : (
-            <ToDoTable toDoList={toDoList} handleDelete={handleDelete} />
-          )}
-        </div>
+          <Loader loading={loading}>
+            <>
+              <ToDoSearchInput
+                searchTerm={searchTerm}
+                handleSearchChange={handleSearchChange}
+              />
+              <ToDoForm
+                toDo={toDo}
+                handleChange={handleChange}
+                handleAddToDo={handleAddToDo}
+              />
+              <ToDoTable toDoList={toDoList} handleDelete={handleDelete} />
+            </>
+          </Loader>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default ToDoContainer;
+export default ToDoContainer
