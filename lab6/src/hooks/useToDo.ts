@@ -74,7 +74,6 @@ export const useToDo = () => {
     loading,
     editItemId,
     startEditMode,
-    endEditMode,
     saveEditing,
     handleSearchChange,
     handleChange,

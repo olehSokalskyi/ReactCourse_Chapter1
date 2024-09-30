@@ -12,7 +12,6 @@ const ToDoContainer = () => {
     loading,
     editItemId,
     startEditMode,
-    endEditMode,
     saveEditing,
     handleSearchChange,
     handleChange,
