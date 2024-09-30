@@ -36,6 +36,14 @@ export const useToDo = () => {
     });
   };
 
+  const handleEditChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, type, checked } = e.target;
+    setToDoEdit({
+      ...toDoEdit,
+      [name]: type === "checkbox" ? checked : value,
+    });
+  };
+
   const handleDelete = (id: number) => {
     const newToDoList = todos.filter((toDo: ToDoItem) => toDo.id !== id);
     setTodos(newToDoList);
@@ -51,7 +59,7 @@ export const useToDo = () => {
   };
 
   const startEditMode = (toDo: ToDoItem) => {
-    setToDo(toDo);
+    setToDoEdit(toDo);
     setEditItemId(toDo.id);
   };
 
@@ -67,7 +75,7 @@ export const useToDo = () => {
 
   const saveEditing = () => {
     const updatedTodos = todos.map((item) =>
-      item.id === toDo.id ? toDo : item
+      item.id === toDoEdit.id ? toDoEdit : item
     );
     setTodos(updatedTodos);
     endEditMode();
@@ -84,6 +92,7 @@ export const useToDo = () => {
     saveEditing,
     handleSearchChange,
     handleChange,
+    handleEditChange,
     handleDelete,
     handleAddToDo,
   };

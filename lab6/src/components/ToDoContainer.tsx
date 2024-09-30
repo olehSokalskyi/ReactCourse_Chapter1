@@ -17,6 +17,7 @@ const ToDoContainer = () => {
     handleSearchChange,
     handleChange,
     handleDelete,
+    handleEditChange,
     handleAddToDo,
   } = useToDo();
 
@@ -40,6 +41,7 @@ const ToDoContainer = () => {
               startEditMode={startEditMode}
               saveEditing={saveEditing}
               handleChange={handleChange}
+              handleEditChange={handleEditChange}
               editItemId={editItemId}
               toDoEdit={toDoEdit}
             />

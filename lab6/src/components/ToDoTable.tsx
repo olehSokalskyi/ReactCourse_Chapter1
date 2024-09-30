@@ -7,6 +7,7 @@ interface Props {
   startEditMode: (toDo: ToDoItem) => void;
   saveEditing: () => void;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleEditChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   editItemId: number;
   toDoEdit: ToDoItem;
 }
@@ -17,6 +18,7 @@ const ToDoTable: React.FC<Props> = ({
   startEditMode,
   saveEditing,
   handleChange,
+  handleEditChange,
   editItemId,
   toDoEdit,
 }) => {
@@ -53,7 +55,7 @@ const ToDoTable: React.FC<Props> = ({
                     type="text"
                     name="title"
                     value={toDoEdit.title}
-                    onChange={handleChange}
+                    onChange={handleEditChange}
                   />
                   {error && <span style={{ color: "red" }}>{error}</span>}
                 </>
@@ -67,7 +69,7 @@ const ToDoTable: React.FC<Props> = ({
                   type="checkbox"
                   name="completed"
                   checked={toDoEdit.completed}
-                  onChange={handleChange}
+                  onChange={handleEditChange}
                 />
               ) : item.completed ? (
                 "Yes"
