@@ -17,7 +17,6 @@ const ToDoTable: React.FC<Props> = ({
   handleDelete,
   startEditMode,
   saveEditing,
-  handleChange,
   handleEditChange,
   editItemId,
   toDoEdit,
