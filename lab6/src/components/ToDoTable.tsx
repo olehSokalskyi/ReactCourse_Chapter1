@@ -8,7 +8,7 @@ interface Props {
   saveEditing: () => void;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   editItemId: number;
-  toDo: ToDoItem;
+  toDoEdit: ToDoItem;
 }
 
 const ToDoTable: React.FC<Props> = ({
@@ -18,12 +18,12 @@ const ToDoTable: React.FC<Props> = ({
   saveEditing,
   handleChange,
   editItemId,
-  toDo,
+  toDoEdit,
 }) => {
   const [error, setError] = useState<string>("");
 
   const handleSave = () => {
-    if (toDo.title.trim() === "") {
+    if (toDoEdit.title.trim() === "") {
       setError("Title cannot be empty");
       return;
     }
@@ -52,7 +52,7 @@ const ToDoTable: React.FC<Props> = ({
                   <input
                     type="text"
                     name="title"
-                    value={toDo.title}
+                    value={toDoEdit.title}
                     onChange={handleChange}
                   />
                   {error && <span style={{ color: "red" }}>{error}</span>}
@@ -66,7 +66,7 @@ const ToDoTable: React.FC<Props> = ({
                 <input
                   type="checkbox"
                   name="completed"
-                  checked={toDo.completed}
+                  checked={toDoEdit.completed}
                   onChange={handleChange}
                 />
               ) : item.completed ? (

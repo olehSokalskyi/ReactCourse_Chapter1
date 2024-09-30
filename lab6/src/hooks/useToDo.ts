@@ -4,6 +4,7 @@ import { useGetAllToDo } from "./useGetAllToDo";
 
 export const useToDo = () => {
   const { todos, loading, setTodos } = useGetAllToDo();
+  const {toDoEdit, setToDoEdit} = useState<ToDoItem | null>(null);
   const [editItemId, setEditItemId] = useState<number>(0);
   const [toDo, setToDo] = useState<ToDoItem>({
     id: 0,
@@ -50,7 +51,7 @@ export const useToDo = () => {
   };
 
   const endEditMode = () => {
-    setToDo({
+    setToDoEdit({
       id: 0,
       title: "",
       completed: false,
@@ -70,6 +71,7 @@ export const useToDo = () => {
   return {
     toDoList: filteredToDoList,
     toDo,
+    toDoEdit,
     searchTerm,
     loading,
     editItemId,

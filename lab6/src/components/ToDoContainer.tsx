@@ -9,6 +9,7 @@ const ToDoContainer = () => {
     toDoList,
     searchTerm,
     toDo,
+    toDoEdit,
     loading,
     editItemId,
     startEditMode,
@@ -22,31 +23,17 @@ const ToDoContainer = () => {
   return (
     <>
       <div>
-        <div>
-          <ToDoSearchInput
-            searchTerm={searchTerm}
-            handleSearchChange={handleSearchChange}
-          />
-        </div>
-        <div>
-          <ToDoForm
-            toDo={toDo}
-            handleChange={handleChange}
-            handleAddToDo={handleAddToDo}
-          />
-        </div>
-        <div>
-          {loading ? (
-            <Loader
-              visible={loading}
-              height={100}
-              width={100}
-              color="#4fa94d"
-              secondaryColor="#4fa94d"
-            >
-              Loading...
-            </Loader>
-          ) : (
+        <Loader loading={loading}>
+          <>
+            <ToDoSearchInput
+              searchTerm={searchTerm}
+              handleSearchChange={handleSearchChange}
+            />
+            <ToDoForm
+              toDo={toDo}
+              handleChange={handleChange}
+              handleAddToDo={handleAddToDo}
+            />
             <ToDoTable
               toDoList={toDoList}
               handleDelete={handleDelete}
@@ -54,10 +41,10 @@ const ToDoContainer = () => {
               saveEditing={saveEditing}
               handleChange={handleChange}
               editItemId={editItemId}
-              toDo={toDo}
+              toDoEdit={toDoEdit}
             />
-          )}
-        </div>
+          </>
+        </Loader>
       </div>
     </>
   );
