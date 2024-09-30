@@ -4,7 +4,12 @@ import { useGetAllToDo } from "./useGetAllToDo";
 
 export const useToDo = () => {
   const { todos, loading, setTodos } = useGetAllToDo();
-  const {toDoEdit, setToDoEdit} = useState<ToDoItem | null>(null);
+  const [toDoEdit, setToDoEdit] = useState<ToDoItem>({
+    id: 0,
+    title: "",
+    completed: false,
+    userId: 1,
+  });
   const [editItemId, setEditItemId] = useState<number>(0);
   const [toDo, setToDo] = useState<ToDoItem>({
     id: 0,
