@@ -4,7 +4,7 @@ import AddressBookTable from "./AddressBookTable.tsx";
 import AddressForm from "./AddressForm.tsx";
 import { Loader } from "./Loader.tsx";
 
-const ToDoContainer = () => {
+const AddressBookContainer = () => {
   const {
     addressBook,
     searchTerm,
@@ -52,4 +52,4 @@ const ToDoContainer = () => {
   );
 };
 
-export default ToDoContainer;
+export default AddressBookContainer;

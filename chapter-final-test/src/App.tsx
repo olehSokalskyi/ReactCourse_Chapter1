@@ -1,14 +1,14 @@
-import './App.css'
-import ToDoContainer from "./components/AddressBookContainer.tsx";
+import "./App.css";
+import AddressBookContainer from "./components/AddressBookContainer.tsx";
 import PageTitle from "./components/PageTitle.tsx";
 
 function App() {
-  return(
+  return (
     <>
-      <PageTitle  />
-      <ToDoContainer />
+      <PageTitle />
+      <AddressBookContainer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
